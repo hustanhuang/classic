@@ -12,7 +12,11 @@ local Object = {}
 Object.__index = Object
 
 
-function Object:new()
+function Object:new(arg)
+  local arg = arg or {}
+  for k, v in pairs(arg) do
+    self[k] = v
+  end
 end
 
 
