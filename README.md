@@ -21,7 +21,8 @@ additional classes.
 ```lua
 Point = Object:extend()
 
-function Point:new(x, y)
+function Point:new(x, y, args)
+  Point.super.new(self, args)
   self.x = x or 0
   self.y = y or 0
 end
@@ -29,7 +30,8 @@ end
 
 ### Creating a new object
 ```lua
-local p = Point(10, 20)
+local p = Point(10, 20, {name = "point 1"})
+-- p.name == "point 1"
 ```
 
 ### Extending an existing class
